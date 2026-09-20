@@ -1,8 +1,4 @@
-# CELDA 1: INSTALAMOS TODO LO NECESARIO
-!pip install Flask==2.2.5 yt-dlp==2025.01.15 fpdf2==2.7.8 requests==2.31.0 --quiet
-print("✅ ¡Librerías instaladas con éxito! Ahora crea una celda abajo.")
 from flask import Flask, render_template_string, request, Response
-from google.colab import output
 import yt_dlp
 from fpdf import FPDF
 import io
@@ -61,8 +57,6 @@ def espiar_nichos_completo(keyword, tipo_plan):
                     "ganancia": f"${ganancia_base:,} USD/mes",
                     "editor": editor
                 })
-            if tipo_plan == "Premium" and canales:
-                enviar_alerta_telegram(f"🕵️‍♂️ ¡Alerta Espía!\nNicho: {keyword.upper()}\nCanal: {canales[0]['nombre']}\nSubs: {canales[0]['subs']}\nGanancia: {canales[0]['ganancia']}\nEditor: {canales[0]['editor']}")
             return canales
         except: return []
 
@@ -92,6 +86,7 @@ HTML_COMPLETO = """
                 {% endif %}
             </div>
             <div class="space-y-4">
+                {% endfor %}
                 {% for canal in resultados %}
                     <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
                         <div class="flex justify-between items-center mb-1">
@@ -156,6 +151,5 @@ def descargar_pdf():
     output_pdf.seek(0)
     return Response(output_pdf.getvalue(), mimetype="application/pdf", headers={"Content-Disposition": f"attachment;filename=Reporte.pdf"})
 
-
 if _name_ == "_main_":
-    app.run(port=5000)
+    app.run()
