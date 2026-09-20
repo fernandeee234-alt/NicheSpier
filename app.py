@@ -86,7 +86,6 @@ HTML_COMPLETO = """
                 {% endif %}
             </div>
             <div class="space-y-4">
-                {% endfor %}
                 {% for canal in resultados %}
                     <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
                         <div class="flex justify-between items-center mb-1">
