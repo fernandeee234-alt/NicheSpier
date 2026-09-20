@@ -1,0 +1,5 @@
+Flask==2.2.5
+yt-dlp==2025.01.15
+fpdf2==2.7.8
+gunicorn==21.2.0
+requests==2.31.0 
