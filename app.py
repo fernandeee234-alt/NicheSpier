@@ -4,7 +4,7 @@ from fpdf import FPDF
 import io
 import requests
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # Configuración del Bot de Telegram (Para alertas Premium)
 TELEGRAM_BOT_TOKEN = "TU_TOKEN_DE_TELEGRAM_AQUI"
