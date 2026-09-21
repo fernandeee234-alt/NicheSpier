@@ -150,5 +150,5 @@ def descargar_pdf():
     output_pdf.seek(0)
     return Response(output_pdf.getvalue(), mimetype="application/pdf", headers={"Content-Disposition": f"attachment;filename=Reporte.pdf"})
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run()
